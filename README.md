@@ -1,29 +1,28 @@
-# Base de datos SQLite
+# Python and SQLite Connection Example
 
-## 1. ¿Cuál es la diferencia entre una conexión MySQL/PostgreSQL y SQLite?
+This beginner example downloads a sample SQLite database from this repository, opens it with Python's built-in `sqlite3` module, and prints the rows from the `personas` table.
 
-La principal diferencia está en la forma en que funcionan y se conectan a las bases de datos.
+## Requirements
 
-MySQL y PostgreSQL son sistemas de gestión de bases de datos que normalmente funcionan mediante un servidor. La base de datos se encuentra alojada en un equipo o servidor, y los programas se conectan a ella a través de una red utilizando credenciales como el usuario, la contraseña, la dirección del servidor y el nombre de la base de datos.
+- Python 3
+- Internet access when running the script, to download the database
+- No third-party Python packages
 
-SQLite, por otro lado, funciona directamente mediante un archivo. No necesita un servidor independiente, ya que Python puede crear, abrir y modificar el archivo de la base de datos utilizando la biblioteca `sqlite3`.
+## Run
 
-## 2. ¿Cuál es la importancia de conectar y desconectar los entornos?
-
-Conectar y desconectar una base de datos es importante para garantizar que la información pueda consultarse, almacenarse y modificarse correctamente.
-
-**Conectar** permite que el programa establezca comunicación con la base de datos para ejecutar operaciones como insertar registros, consultar información, actualizar datos o eliminarlos.
-
-**Desconectar** permite cerrar correctamente la conexión cuando ya no se necesita. Esto ayuda a liberar recursos del equipo, evitar conexiones abiertas innecesariamente y reducir el riesgo de problemas durante las operaciones de almacenamiento.
-
-## Conexión desde GitHub
-
-Ejecuta:
+Clone the repository and run the script from its directory:
 
 ```bash
+git clone https://github.com/Xegreet/conexion-sqlite-python.git
+cd conexion-sqlite-python
 python conectar_sqlite.py
 ```
 
-El programa descarga la base de datos SQLite desde esta URL pública de GitHub y luego la abre localmente:
+The script downloads `datos.sqlite3` from the repository into `datos_descargados.sqlite3` beside the script. It then queries `id`, `nombre`, and `correo` from `personas`, ordered by `id`. The downloaded file is replaced each time the script runs.
 
-`https://raw.githubusercontent.com/Xegreet/conexion-sqlite-python/main/datos.sqlite3`
+## Concepts practiced
+
+- Opening a SQLite database with `sqlite3`
+- Running a basic `SELECT` query
+- Managing a connection with a context manager
+- Downloading a file with Python's standard library
